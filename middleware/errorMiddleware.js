@@ -9,7 +9,7 @@ const errorMiddleware = {
       path: req.path,
       app: req.app
     };
-    logRepo.writeToFile(errorObject, data => {
+    logRepo.writeToFile(errorObject, log => {
       errorHelpers.logErrorToConsole(errorObject);
     }, err => {
       console.error(err);

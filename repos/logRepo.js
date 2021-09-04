@@ -5,11 +5,12 @@ const logger = fs.createWriteStream(FILE_NAME, {
 });
 
 const logRepo = {
-  writeToFile: (data) => {
+  writeToFile: (data, callback) => {
     let log = `Date/Time: ${new Date().toLocaleDateString()} \r\n`;
     log += `Exception info: ${JSON.stringify(data)} \r\n`;
     log += `${"*".repeat(80)} \r\n`;
     logger.write(log);
+    callback(log);
   }
 };
 
